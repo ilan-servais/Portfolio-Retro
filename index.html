@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Retrowave</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+        
+        body {
+            margin: 0;
+            padding: 0;
+            background: #0D0221;
+            color: #fff;
+            font-family: 'Press Start 2P', cursive;
+            text-align: center;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Animation de changement de couleur du background */
+        @keyframes background-shift {
+            0% { background: #0D0221; }
+            25% { background: #28025A; }
+            50% { background: #3A0270; }
+            75% { background: #28025A; }
+            100% { background: #0D0221; }
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(180deg, #12002A, #28025A);
+            text-shadow: 0px 0px 10px #FF00FF;
+            position: relative;
+            overflow: hidden;
+            animation: background-shift 10s infinite alternate ease-in-out;
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 14px;
+            color: #FF00FF;
+            text-transform: uppercase;
+            animation: bounce 1s infinite alternate;
+            cursor: pointer;
+        }
+
+        .scroll-down::after {
+            content: "↓";
+            display: block;
+            font-size: 24px;
+            margin-top: 5px;
+        }
+
+        @keyframes bounce {
+            0% { transform: translateY(0) translateX(-50%); }
+            100% { transform: translateY(10px) translateX(-50%); }
+        }
+
+        .game-container {
+            position: relative;
+            width: 100%;
+            height: 150px;
+            overflow: hidden;
+            background: #1A001F;
+            margin-top: 50px;
+        }
+
+        .game-background {
+            position: absolute;
+            width: 200%;
+            height: 100%;
+            background: url('https://www.mariomayhem.com/downloads/nes_graphics/mario_level_background.gif') repeat-x;
+            background-size: contain;
+            animation: scroll-background 5s linear infinite;
+        }
+
+        @keyframes scroll-background {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+
+        .mario {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 50px;
+            background: url('https://www.spriters-resource.com/resources/sheet_icons/9/8823.png') no-repeat;
+            background-size: cover;
+            animation: mario-run 0.5s steps(2) infinite;
+        }
+
+        @keyframes mario-run {
+            from { background-position: 0 0; }
+            to { background-position: -100px 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div class="vhs-overlay"></div>
+        <div class="glitch-effect"></div>
+        <h1 class="glitch">Ilan Dev</h1>
+        <p class="subtitle">Développeur Web - Passionné de rétro</p>
+        <div class="scroll-down" onclick="scrollToSection()">Scroll Down</div>
+    </div>
+    
+    <section class="about" id="about">
+        <h2>À propos de moi</h2>
+        <p>Je suis Ilan, développeur web en formation Bac+2 avec une spécialisation en **Symfony, Laravel, ReactJS et MySQL**. Passionné par l'univers rétro et les expériences interactives, j'aime concevoir des projets immersifs.</p>
+        <p>Actuellement, je travaille avec **Docker**, et j'ai développé des applications en **PHP/MySQL**, notamment des systèmes de gestion d'utilisateurs et d'authentification.</p>
+    </section>
+
+    <section class="projects">
+        <h2>Projets</h2>
+        <div class="project-grid">
+            <div class="project-card" onclick="location.href='#';">Portfolio Minimaliste - Expérience interactive basée sur le scroll</div>
+            <div class="project-card" onclick="location.href='#';">Jeu de Memory - Conçu en ReactJS avec une API</div>
+            <div class="project-card" onclick="location.href='#';">Gestion de Recettes - Application web PHP/MySQL</div>
+        </div>
+    </section>
+
+    <section class="game-container">
+        <div class="game-background"></div>
+        <div class="mario"></div>
+    </section>
+
+    <section class="contact">
+        <h2>Contact</h2>
+        <p>Envie de discuter d'un projet ou de collaborer ? Contactez-moi !</p>
+        <p>Email : <a href="mailto:contact@ilandev.com">contact@ilandev.com</a></p>
+        <p>GitHub : <a href="https://github.com/ilan-dev" target="_blank">github.com/ilan-dev</a></p>
+    </section>
+
+    <script>
+        function scrollToSection() {
+            document.getElementById("about").scrollIntoView({ behavior: "smooth" });
+        }
+    </script>
+</body>
+</html>
