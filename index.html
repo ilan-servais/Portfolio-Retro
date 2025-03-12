@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio Retrowave</title>
+    <link rel="stylesheet" href="styles.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
         
@@ -64,44 +65,28 @@
             100% { transform: translateY(10px) translateX(-50%); }
         }
 
-        .game-container {
-            position: relative;
-            width: 100%;
-            height: 150px;
-            overflow: hidden;
-            background: #1A001F;
-            margin-top: 50px;
+        .project-grid {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
         }
 
-        .game-background {
-            position: absolute;
-            width: 200%;
-            height: 100%;
-            background: url('https://www.mariomayhem.com/downloads/nes_graphics/mario_level_background.gif') repeat-x;
-            background-size: contain;
-            animation: scroll-background 5s linear infinite;
+        .project-card {
+            background: rgba(255, 0, 255, 0.2);
+            padding: 15px 30px;
+            border: 2px solid #FF00FF;
+            border-radius: 10px;
+            font-size: 16px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        @keyframes scroll-background {
-            from { transform: translateX(0); }
-            to { transform: translateX(-50%); }
-        }
-
-        .mario {
-            position: absolute;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 50px;
-            height: 50px;
-            background: url('https://www.spriters-resource.com/resources/sheet_icons/9/8823.png') no-repeat;
-            background-size: cover;
-            animation: mario-run 0.5s steps(2) infinite;
-        }
-
-        @keyframes mario-run {
-            from { background-position: 0 0; }
-            to { background-position: -100px 0; }
+        .project-card:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 0px 15px #FF00FF;
         }
     </style>
 </head>
@@ -127,11 +112,6 @@
             <div class="project-card" onclick="location.href='#';">Jeu de Memory - Conçu en ReactJS avec une API</div>
             <div class="project-card" onclick="location.href='#';">Gestion de Recettes - Application web PHP/MySQL</div>
         </div>
-    </section>
-
-    <section class="game-container">
-        <div class="game-background"></div>
-        <div class="mario"></div>
     </section>
 
     <section class="contact">
